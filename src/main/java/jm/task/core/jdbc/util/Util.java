@@ -21,20 +21,6 @@ public class Util {
     private static final String PASSWORD = "root";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
-    public Connection getConnection() {
-        Connection conn = null;
-
-        try {
-            Class.forName(DRIVER).getDeclaredConstructor().newInstance();
-            conn = java.sql.DriverManager.getConnection(URL, USER, PASSWORD);
-            if (!conn.isClosed()) {
-                System.out.println("Connection established");
-            }
-        } catch (Exception e) {
-            System.out.println("Connection is not available");
-        }
-        return conn;
-    }
     private static SessionFactory sessionFactory;
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
